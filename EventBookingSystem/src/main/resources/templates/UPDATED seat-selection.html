@@ -1,0 +1,30 @@
+<div class="container mt-4 text-center">
+
+	<h2>Select Your Seat 🎟️</h2>
+
+	<div class="d-flex flex-wrap justify-content-center">
+
+		<div th:each="seat : ${seats}" class="m-2">
+
+			<form th:action="@{'/book/' + ${seat.id}}" method="post">
+
+				<button style="width: 60px; height: 60px; border-radius: 10px;"
+					th:classappend="${seat.booked} ? 'btn btn-danger' : 'btn btn-success'"
+					th:disabled="${seat.booked}">
+
+					<span th:text="${seat.seatNumber}"></span>
+
+				</button>
+
+			</form>
+
+		</div>
+
+	</div>
+
+	<p class="mt-3">
+		<span class="badge bg-success">Available</span> <span
+			class="badge bg-danger">Booked</span>
+	</p>
+
+</div>
