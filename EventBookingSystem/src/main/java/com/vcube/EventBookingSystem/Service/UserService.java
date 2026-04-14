@@ -18,7 +18,7 @@ public class UserService {
     
     
     public void registerUser(Users user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword())); // ✅ MUST
+    	user.setPassword(passwordEncoder.encode(user.getPassword())); // ✅ MUST
         user.setRole("USER");
         userRepository.save(user);
     }

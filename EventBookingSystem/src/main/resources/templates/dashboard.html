@@ -41,7 +41,7 @@ body {
 		<!-- 🔹 WELCOME SECTION -->
 		<div class="welcome-box mb-4">
 			<h2>
-				Welcome, <span th:text="${#authentication.name}">User</span> 👋
+				Welcome, <span th:text="${#authentication != null ? #authentication.name : 'Guest'}"></span> 👋
 			</h2>
 			<p>Explore events and book your tickets easily</p>
 		</div>
