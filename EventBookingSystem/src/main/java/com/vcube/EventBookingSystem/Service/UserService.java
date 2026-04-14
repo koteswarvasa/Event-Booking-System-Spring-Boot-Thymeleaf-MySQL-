@@ -17,10 +17,16 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
     
     
-
-    public Users registerUser(Users user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("ROLE_USER");
-        return userRepository.save(user);
+    public void registerUser(Users user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword())); // ✅ MUST
+        user.setRole("USER");
+        userRepository.save(user);
     }
+    
+
+//    public Users registerUser(Users user) {
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        user.setRole("USER");
+//        return userRepository.save(user);
+//    }
 }

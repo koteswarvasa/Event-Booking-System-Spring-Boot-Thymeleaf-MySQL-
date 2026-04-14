@@ -12,25 +12,24 @@ import com.vcube.EventBookingSystem.Service.UserService;
 
 @Controller
 public class AuthController {
-	
+
 	@Autowired
-    private UserService userService;
+	private UserService userService;
 
-    @GetMapping("/login")
-    public String loginPage() {
-        return "login";
-    }
-    
-    
-    @GetMapping("/register")
-    public String showRegisterPage(Model model) {
-        model.addAttribute("user", new Users());
-        return "register";
-    }
+	@GetMapping("/login")
+	public String loginPage() {
+		return "login";
+	}
 
-    @PostMapping("/register")
-    public String register(@ModelAttribute Users user) {
-        userService.registerUser(user);
-        return "redirect:/login";
-    }
+	@GetMapping("/register")
+	public String showRegisterPage(Model model) {
+		model.addAttribute("user", new Users());
+		return "register";
+	}
+
+	@PostMapping("/register")
+	public String register(@ModelAttribute Users user) {
+		userService.registerUser(user);
+		return "redirect:/login";
+	}
 }
